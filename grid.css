@@ -1,0 +1,109 @@
+/* Basic reset for demonstration */
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+}
+
+/* --- Newspaper Layout Container --- */
+.newspaper-layout {
+  display: grid;
+  
+  /* 1. Define 3 equal columns */
+  grid-template-columns: 1fr 1fr 1fr;
+  
+  /* 2. Define rows: auto for title, 3 equal parts for the rest */
+  grid-template-rows: auto 1fr 1fr 1fr; 
+  
+  /* 3. Add a gap between grid items */
+  gap: 20px;
+  
+  /* 4. Define the arrangement of sections using grid-template-areas */
+  grid-template-areas:
+    "title title title" /* Row 1: Title spans all 3 columns */
+    "feature-article feature-article cover-image" /* Row 2: Feature spans 2, Cover in column 3 */
+    "secondary-article secondary-article cover-image" /* Row 3: Secondary spans 2, Cover in column 3 (shared with Row 2) */
+    "small-article1 small-article2 small-article3"; /* Row 4: Three small articles, one per column */
+
+  max-width: 1200px; /* Limit width for better presentation */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Grid Area Assignment --- */
+/* Setting grid-area property for each element to its class name */
+.title {
+  grid-area: title;
+  text-align: center;
+  border-bottom: 3px double #333;
+  padding-bottom: 10px;
+}
+
+.feature-article {
+  grid-area: feature-article;
+}
+
+.secondary-article {
+  grid-area: secondary-article;
+}
+
+.cover-image {
+  grid-area: cover-image;
+  /* Make image align to top of its area */
+  align-self: start; 
+}
+
+.small-article1 {
+  grid-area: small-article1;
+}
+
+.small-article2 {
+  grid-area: small-article2;
+}
+
+.small-article3 {
+  grid-area: small-article3;
+}
+
+/* --- Image Fitting --- */
+.cover-image img {
+  /* Ensure the image fits within the designated space */
+  max-width: 100%;
+  height: auto;
+  display: block; /* Removes any extra space below inline images */
+  border: 1px solid #ddd;
+}
+
+/* --- Basic Typography and Styling for Articles --- */
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+  color: #c0392b; /* Newspaper feel color */
+}
+
+h2 {
+  font-size: 1.8em;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 1.2em;
+  color: #2c3e50;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 3px;
+}
+
+article {
+  padding: 15px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+}
+
+.feature-article, .secondary-article {
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
